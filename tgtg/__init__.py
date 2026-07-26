@@ -13,7 +13,7 @@ from tgtg.google_play_scraper import get_last_apk_version
 
 from .exceptions import TgtgAPIError, TgtgLoginError, TgtgPollingError
 
-BASE_URL = "https://apptoogoodtogo.com/api/"
+BASE_URL = "https://api.toogoodtogo.com/api/"
 API_ITEM_ENDPOINT = "item/v9/"
 FAVORITE_ITEM_ENDPOINT = "user/favorite/v1/{}/update"
 AUTH_BY_EMAIL_ENDPOINT = "auth/v5/authByEmail"
@@ -29,13 +29,11 @@ ORDER_STATUS_ENDPOINT = "order/v8/{}/status"
 API_BUCKET_ENDPOINT = "discover/v1/bucket"
 MANUFACTURER_ITEM_ENDPOINT = "manufactureritem/v2"
 DATADOME_SDK_URL = "https://api-sdk.datadome.co/sdk/"
+DATADOME_TGTG_KEY = "1D42C2CA6131C526E09F294FE96F94"
 
-
-DEFAULT_APK_VERSION = "24.11.0"
+DEFAULT_APK_VERSION = "26.7.2"
 USER_AGENTS = [
-    "TGTG/{} Dalvik/2.1.0 (Linux; U; Android 9; Nexus 5 Build/M4B30Z)",
-    "TGTG/{} Dalvik/2.1.0 (Linux; U; Android 10; SM-G935F Build/NRD90M)",
-    "TGTG/{} Dalvik/2.1.0 (Linux; Android 12; SM-G920V Build/MMB29K)",
+    "TGTG/{} Dalvik/2.1.0 (Linux; U; Android 14; SM-S926B Build/UP1A.231005.007)"
 ]
 DEFAULT_ACCESS_TOKEN_LIFETIME = 3600 * 4  # 4 hours
 MAX_POLLING_TRIES = 24  # 24 * POLLING_WAIT_TIME = 2 minutes
@@ -133,7 +131,7 @@ class TgtgClient:
         params = {
             "camera": '{"auth":"true", "info":"{\\"front\\":\\"2000x1500\\",\\"back\\":\\"5472x3648\\"}"}',
             "cid": cid,
-            "ddk": "1D42C2CA6131C526E09F294FE96F94",
+            "ddk": DATADOME_TGTG_KEY,
             "ddv": "3.0.4",
             "ddvc": apk_version,
             "events": '[{"id":1,"message":"response validation","source":"sdk","date":'
